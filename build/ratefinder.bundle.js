@@ -71,6 +71,23 @@
 "use strict";
 
 
+var url = "rates.json";
+
+fetch(url).then(function (response) {
+  return response.json();
+}).then(function (rates) {
+  var html = '';
+  rates.forEach(function (rate) {
+    return html += "<tr><td>" + rate.name + "</td><td>" + rate.years + "</td><td>" + rate.rate + "%</td></tr>";
+  });
+  document.getElementById("rates").innerHTML = html;
+}).catch(function (e) {
+  return console.log(e);
+});
+
+//ever since i introduced this file nothing but white screens have been
+//showing up :(
+
 /***/ })
 
 /******/ });
